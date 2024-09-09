@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append('/home/dipatel/PySparkPractise/scripts')
+
 from transform_data import data_transform
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *

@@ -1,6 +1,11 @@
+import sys
+import os
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from datetime import datetime, timedelta
+
+
+sys.path.append('/home/dipatel/PySparkPractise/scripts')
 from extract_data import data_extract
 from transform_data import data_transform
 from load_data import data_load
@@ -16,7 +21,7 @@ def Transformations():
     return transform_data_df
 
 
-def load():
+def Load():
     transform_data_df=data_load()
     return transform_data_df
 
@@ -38,20 +43,20 @@ dag = DAG(
 )
 
 task1 = PythonOperator(
-    task_id='Extract data',
+    task_id='Extract_data',
     python_callable=Extract,
     dag=dag,
 )
 
 task2 = PythonOperator(
-    task_id='Transform data',
+    task_id='Transform_data',
     python_callable=Transformations,
     dag=dag,
 )
 
 
 task3 = PythonOperator(
-    task_id='Load data',
+    task_id='Load_data',
     python_callable=Load,
     dag=dag,
 )

@@ -1,11 +1,7 @@
-import sys
-import os
-sys.path.append('/home/dipatel/PySparkPractise/scripts')
-
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
+from .extract_data import data_extract
 
-from extract_data import data_extract
 def data_transform():
     spark= SparkSession.builder.appName("Restaurant report").getOrCreate()
     df=spark.read.csv("E:/Project/data/intermediate/extracted_data.csv", header=True, inferSchema= True)

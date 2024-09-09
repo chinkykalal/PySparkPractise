@@ -1,14 +1,14 @@
-import sys
-import os
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from datetime import datetime, timedelta
+import sys
+import os
 
-
-sys.path.append('/home/dipatel/PySparkPractise/scripts')
-from extract_data import data_extract
-from transform_data import data_transform
-from load_data import data_load
+# Add base project path to PYTHONPATH
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from scripts.extract_data import data_extract
+from scripts.transform_data import data_transform
+from scripts.load_data import data_load
 
 
 def Extract():

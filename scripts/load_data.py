@@ -1,8 +1,8 @@
 import sys
 import os
-sys.path.append('/home/dipatel/PySparkPractise/scripts')
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from transform_data import data_transform
+from scripts.transform_data import data_transform
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 

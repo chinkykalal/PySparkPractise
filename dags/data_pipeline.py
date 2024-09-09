@@ -12,8 +12,7 @@ from scripts.load_data import data_load
 
 
 def Extract():
-    extract_df= data_extract()
-    return extract_df
+    data_extract()
 
 
 def Transformations():

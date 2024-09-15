@@ -36,7 +36,7 @@ default_args = {
 
 # Instantiate a DAG
 dag = DAG(
-    'Fast_food_sales',
+    'supply_chain',
     default_args=default_args,
     schedule_interval=timedelta(days=1),
 )
